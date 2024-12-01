@@ -1,41 +1,92 @@
-// exo 1
+// Objets
 
-function sum(x, y){
-    return x * y;
+//exo 1
+
+const billyTheCat = {
+    name: "billy",
+    color: "black",
+    favouriteFoods: ["fish", "chicken"],
+    isHungry: true,
+    meow: function () {
+        return "Meeeeeeeow";
+    }
 }
 
-console.log(sum(10, 5))
+console.log(billyTheCat)
 
 
- // exo 2
+//exo 2
 
-function sum1(a, b){
-    return Math.sqrt(a) + Math.pow(b, 7);
-}
-
-console.log(sum1(9, 2))
-console.log(sum1(9, 8))
+//let c = prompt(billyTheCat.color);
+//console.log(c)
 
 
 // exo 3
 
-//const firstOne = prompt("What is the first language you have to know before learning JS ?");
-// const secondOne = prompt("What is the second language you have to know before learning JS ?")
+const animals = [
+    { name: "kitty", species: "cat", noise: "meow" },
+    { name: "skaly", species: "squale", noise: "frrrrrr" },
+    { name: "wormy", species: "worm", noise: "????" },
+    { name: "Pikatchue", species: "electrick mouse", noise: "pikaaaaa" }
+];
 
-//function programmation(answer1, answer2){
-//    if(answer1 === 'HTML' && answer2 === 'CSS'){
-//        return true;
-//    } 
-//    else{
-//        return false;
-//    }
-//};
+console.log(animals[3])
 
 
-//programmation(firstOne, secondOne);
+// exo 4
 
-//if (programmation(firstOne, secondOne) === true){
-//    console.log("Bienvenue en JS jeune éphèbe");
-//} else{
-//    console.log("Solidifie tes acquis : rien n’est impossible à qui rêve, ose, travaille et n’abandonne jamais")
+console.log(animals[animals.length -1])
+
+
+// exo 5
+
+delete animals[1].name
+delete animals[2].species
+
+console.log(animals[1])
+console.log(animals[2])
+
+// exo 6
+
+ab = animals[0].name
+animals[0].name = animals[3].name
+animals[3].name = ab
+
+console.log(animals[0])
+console.log(animals[3])
+
+
+// exo 7
+
+const apple = {
+    isEaten: false,
+    eat: function () {
+        return this.isEaten ? "le fruit a déjà été mangé" : this.isEaten = true;
+    }
+};
+
+apple.eat()
+console.log(apple.eat())
+
+
+
+//function test(a,b) {
+//    return b/a;
 //}
+
+//console.log(test(10,2));
+
+
+
+
+
+
+//let AppelMaman = false
+//function test2() {
+//    return appelMaman ? "c'est bon je l'ai fait" : appelMaman = true
+//}
+
+//console.log(test2());
+
+
+
