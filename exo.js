@@ -1,92 +1,57 @@
-// Objets
+// Boucles
 
-//exo 1
+// exo 1
 
-const billyTheCat = {
-    name: "billy",
-    color: "black",
-    favouriteFoods: ["fish", "chicken"],
-    isHungry: true,
-    meow: function () {
-        return "Meeeeeeeow";
-    }
-}
-
-console.log(billyTheCat)
+for(let i = 1; i < 51; i++){
+    console.log("Tour numéro " + i);
+};
 
 
-//exo 2
+// exo 2
 
-//let c = prompt(billyTheCat.color);
-//console.log(c)
+for(let i = 1; i < 101; i++){
+
+    console.log(i);
+
+    if(i === 1){
+        console.log("Tour " + i + " : Zé bartiii, c'est à conducteur 1️⃣ de démarrer")
+    };
+
+    if(i === 25){
+        console.log("Tour " + i + " : Il faut changer de conducteur, c'est à conducteur 2️⃣")
+    };
+
+    if(i === 50){
+        console.log("Tour " + i + " : Il faut changer de conducteur, c'est à conducteur 1️⃣")
+    };
+
+    if(i === 75){
+        console.log("Tour " + i + " : Il faut changer de conducteur, c'est à conducteur 2️⃣")
+    }; 
+
+    if(i === 100){
+        console.log("Tour " + i + " : C'est fini, bien joué à tous, HIGH FIVE ! 🙌😎")
+    };
+};
 
 
 // exo 3
 
-const animals = [
-    { name: "kitty", species: "cat", noise: "meow" },
-    { name: "skaly", species: "squale", noise: "frrrrrr" },
-    { name: "wormy", species: "worm", noise: "????" },
-    { name: "Pikatchue", species: "electrick mouse", noise: "pikaaaaa" }
-];
-
-console.log(animals[3])
+let reserve = 74;
+let fuel = 0;
 
 
-// exo 4
+for(let i = 0; i < 102; i++){
 
-console.log(animals[animals.length -1])
+    console.log("Tour numéro " + i + ", Fuel restant : " + reserve);
+    reserve -= 7;
+    if(reserve < 4){
+        console.warn("Attention carburant à recharger au prochain tour⛽️");
+        reserve = 67
+        fuel ++
+        console.warn("Le refuel a été fait 🙌😎");  
+    };
 
-
-// exo 5
-
-delete animals[1].name
-delete animals[2].species
-
-console.log(animals[1])
-console.log(animals[2])
-
-// exo 6
-
-ab = animals[0].name
-animals[0].name = animals[3].name
-animals[3].name = ab
-
-console.log(animals[0])
-console.log(animals[3])
-
-
-// exo 7
-
-const apple = {
-    isEaten: false,
-    eat: function () {
-        return this.isEaten ? "le fruit a déjà été mangé" : this.isEaten = true;
-    }
 };
 
-apple.eat()
-console.log(apple.eat())
-
-
-
-//function test(a,b) {
-//    return b/a;
-//}
-
-//console.log(test(10,2));
-
-
-
-
-
-
-//let AppelMaman = false
-//function test2() {
-//    return appelMaman ? "c'est bon je l'ai fait" : appelMaman = true
-//}
-
-//console.log(test2());
-
-
-
+console.log("Nombre total de fuel : " + fuel);
