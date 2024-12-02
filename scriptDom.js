@@ -92,6 +92,9 @@ function totalTag(tags){
     return alltags;
 };
 
+
+// return document.querySelectorAll(tagname).length;
+
 totalTag('h1');
 totalTag('h2');
 totalTag('h3');
