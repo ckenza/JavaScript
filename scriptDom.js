@@ -1,150 +1,85 @@
-// Modifier des éléments
+// Modifier des styles
+
 // exo 1
 
-const div = document.createElement('div');
-const heroSection = document.getElementById('hero-section');
+let images = document.querySelectorAll("img");
 
-const myh3 = document.createElement('h3');
-myh3.id = "monH3";
-myh3.innerText = "My h3 title";
-
-const myfirstp = document.createElement('p');
-myfirstp.innerText = "I created this div with JavaScript";
-
-const button = document.createElement('button');
-button.classList.add("btn");
-button.innerText = "My 1er button";
-
-
-div.appendChild(myh3);
-div.appendChild(myfirstp);
-div.appendChild(button);
-heroSection.appendChild(div);
+images.forEach((img) => img.setAttribute('src', 'https://th.bing.com/th/id/OIP.gO8wyz4Cq9BQLpo21C1c4gHaGB?w=183&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7'));
+images.forEach((img) => img.setAttribute('style', "height:100%"));
 
 
 // exo 2
 
-const menu = document.querySelector('#menu');
+const titleList = ["h1", "h2", "h3", "h4", "h5", "h6"];
 
-function liCreation(string){
-    li = document.createElement('li');
-    li.innerHTML = string;
-    menu.appendChild(li);
-    return li;
-};
+titleList.forEach((title) => {
+    const index = document.querySelectorAll(title);
+    
+    index.forEach((index) => {
+        index.classList.add('title')
 
-liCreation("Item 1");
-liCreation("Item 2");
-liCreation("Item 3");
-liCreation("Item 4");
-liCreation("Item 5");
+        if(title === 'h1'){
+            index.classList.add('title1')
+        } else if(title === 'h2'){
+            index.classList.add('title2')
+        } else if(title === 'h3'){
+            index.classList.add('title3')
+        };
+    });
+
+});
 
 
 // exo 3
 
-const menu2 = document.createElement('ul');
-menu2.id = "menu2";
-const header = document.querySelector('header');
-header.appendChild(menu2)
+const main = document.querySelector('main');
+const section2 = main.children[1];
+section2.classList.add("section2");
 
+const cardContainer = document.querySelector('section div:first-of-type');
+cardContainer.classList.add('card-container');
 
-function createMenuItem(string){
-    li = document.createElement('li');
-    li.innerHTML = string;
-    menu2.appendChild(li);
-};
-
-createMenuItem("1 Item");
-createMenuItem("2 Item");
-createMenuItem("3 Item");
+const card = document.querySelectorAll('.card-container div');
+card.forEach((element) => element.classList.add('card') )
 
 
 
 // exo 4
 
-//Déplacer le premier et le dernier élément de la première liste (menu) dans la seconde liste (menu2)
+main.style.cssText = "background-color: #fae5d3;"
 
-const li1 = document.querySelector('#menu li');
-const liLast = menu.lastElementChild
-menu2.appendChild(li1);
-menu2.appendChild(liLast)
-// console.log(menu2);
+section2.style.cssText = "background-color: #e9f7ef; padding: 10px; margin: 2px; display: flex; flex-direction: column;"
+
+cardContainer.style.cssText = "border: solid 1px black; margin: auto; padding: 5px; display: flex; justify-content: space-between;"
+
+card.forEach((eachOne) => eachOne.style.cssText = "border: dotted 2px brown; margin: auto; padding: 2px; display: flex; flex-direction: column; vertical-align: middle;")
 
 
-// exo 5
-
-li1.innerText = "4 Item";
-liLast.innerText = "5 Item";
 
 
 // exo 6
 
-const myH1 = document.querySelector("h1");
-myH1.remove()
+ // 6 - Via JS, créer une <div> comme celles déjà présentes dans le HTML : avec sa classe, son style et ses éléments enfants. 
+ // → Injecter cette <div> en tant que 4ème enfant de "card-container"
+ 
+const div = document.createElement('div');
+div.classList.add('card');
+div.style.cssText = "background-color: #ebdef0; padding: 2px; display: flex; flex-direction: column;"
+cardContainer.appendChild(div);
 
+const img = document.createElement('img');
+img.setAttribute('src', 'https://th.bing.com/th/id/OIP.gO8wyz4Cq9BQLpo21C1c4gHaGB?w=183&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7');
+img.setAttribute('alt', 'armani logo');
+div.appendChild(img);
 
-// exo 7
+const h3 = document.createElement("h3");
+h3.innerText = "Titre 3"
+div.appendChild(h3);
 
+const p = document.createElement("p");
+p.innerText = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto deserunt, in dicta est commodi eligendi, eaque molestiae, nisi esse repudiandae deleniti nulla quaerat tempore neque. Excepturi nostrum dicta illo debitis?"
+div.appendChild(p);
 
-const elementListToCreate = [
-    {
-       name: "section",
-       times: 3
-    },
-    {
-       name: "div",
-       times: 3
-    },
-    {
-       name: "p",
-       times: 1
-    },
-    {
-       name: "span",
-       times: 3
-    },
-];
-
-const body = document.querySelector('body');
-
-
-for(let i = 0; i < elementListToCreate[0].times; i++){
-    const section = document.createElement(elementListToCreate[0].name);
-    body.appendChild(section);
-    for(let i = 0; i < elementListToCreate[1].times; i++){
-        const div1 = document.createElement(elementListToCreate[1].name);
-        section.appendChild(div1);
-        for(let i = 0 ; i < elementListToCreate[2].times; i++){
-            const p1 = document.createElement(elementListToCreate[2].name);
-            p1.innerText = "That's a paragraph";
-            div1.appendChild(p1);
-            for(let i = 0; i < elementListToCreate[3].times; i++){
-                const span = document.createElement(elementListToCreate[3].name);
-                span.classList.add("span-a")
-                p1.appendChild(span);
-            };
-        };
-    };
-};
-
-
-
-// exo 8
-
-const allSpan = document.querySelectorAll(".span-a");
-console.log(allSpan);
-
-
-for(let i = 0; i < allSpan.length +1; i++){
-    allSpan[i].innerText = `Je suis le span numéro ${i + 1}`;
-};
-
-
-
-
-
-
-
-
-
-
+const button = document.createElement("button");
+button.innerText = "Click pour en savoir + 🤓"
+div.appendChild(button);
